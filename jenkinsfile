@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/CodeSagarOfficial/jenkins-scripts.git'
+                git branch: 'main', url: 'https://github.com/ITEnthusiast0821/terraform_Oracle-Virtualbox.git'
             }
         }
         stage('Terraform init') {
