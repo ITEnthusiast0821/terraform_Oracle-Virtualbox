@@ -19,7 +19,7 @@ resource "virtualbox_vm" "node" {
 
   network_adapter {
     type           = "hostonly"
-    host_interface = "vboxnet1"
+    host_interface = "VirtualBox Host-Only Ethernet Adapter"
   }
 }
 
