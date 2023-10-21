@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     parameters {
+        string(name: 'server_name', defaultValue: 'localhost', description: 'Please enter the server name?')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
         choice(name: 'action', choices: ['apply', 'destroy'], description: 'Select the action to perform')
     }
@@ -33,7 +34,7 @@ pipeline {
                             parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
                         }
 
-                        sh 'terraform ${action} -input=false tfplan'
+                        sh 'terraform ${action} -i $server_name -input=false tfplan'
                     } else if (params.action == 'destroy') {
                         sh 'terraform ${action} --auto-approve'
                     } else {
