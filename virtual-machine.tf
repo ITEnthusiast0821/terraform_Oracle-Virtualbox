@@ -7,7 +7,12 @@ terraform {
   }
 }
 
-# There are currently no configuration options for the provider itself.
+# There are currently no configuration options for the provider itself. 
+# So, there is no way of specifying the location of Virtualbox
+# Therefore, Terraform & Jenkins MUST be installed on the same base host [the same laptop for instance]. Trying to run a Jenkins or
+# Terraform job from a VM to install another virtual machine on the same Virtualbox hosting the Terraform or Jenkins VM won't work
+# Either the Terraform, Jenkins and the Virtualbox are both installed on the same laptop, or the Terraform, Jenkins and the Virtualbox
+# are both installed on the same VM.
 
 resource "virtualbox_vm" "node" {
   count     = 1
